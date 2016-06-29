@@ -1,0 +1,9 @@
+<div class="container">
+	<h2><%= @sneaker.title %></h2>
+	<h3>$<%= @sneaker.price %></h3>
+	<p><%= @sneaker.detail %></p>
+	<%= link_to "Back", root_path %></br>
+	<%= link_to "Edit", edit_sneaker_path(@sneaker) %></br>
+	<%= link_to "Delete", sneaker_path(@sneaker), method: :delete,
+	                                              data: { confirm: "Are you sure?" } %>
+</div>
