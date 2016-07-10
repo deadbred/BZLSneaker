@@ -1,0 +1,5 @@
+Hi <%= @user.first_name %> <%= @user.last_time %>
+
+Welcome to the BLZSneaker! Click on the link down below to activate your account and start shopping!
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>

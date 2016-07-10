@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-
-
 gem 'rails', '4.2.6'
+
+gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 
 gem 'sqlite3'
 

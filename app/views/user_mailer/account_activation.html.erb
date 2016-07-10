@@ -1,0 +1,9 @@
+<h1>BLZSneaker</h1>
+
+<p>Hi <%= @user.first_name %> <%= @user.last_name %></p>
+
+<p>
+	Welcome to the BLZSneaker! Click on the link down below to activate your account and start shopping!
+</p>
+
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token, email: @user.email) %>
