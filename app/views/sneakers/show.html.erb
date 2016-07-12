@@ -2,9 +2,15 @@
 <div class="container">
 	<h2><%= @sneaker.title %></h2>
 	<h3>$<%= @sneaker.price %></h3>
+	<h4><%= @sneaker.category.name %></h4>
 	<p><%= @sneaker.detail %></p>
 	<%= link_to "Back", root_path %></br>
-	<%= link_to "Edit", edit_sneaker_path(@sneaker) %></br>
-	<%= link_to "Delete", sneaker_path(@sneaker), method: :delete,
-	                                              data: { confirm: "Are you sure?" } %>
+
+	<% if logged_in? %>
+	  <% if @sneaker.user_id == current_user.id %>
+	    <%= link_to "Edit", edit_sneaker_path(@sneaker) %></br>
+	    <%= link_to "Delete", sneaker_path(@sneaker), method: :delete,
+	                                                  data: { confirm: "Are you sure?" } %>
+	  <% end %>
+	<% end %>
 </div>

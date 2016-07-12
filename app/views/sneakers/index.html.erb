@@ -1,9 +1,13 @@
+<h1 class="current-category"><%= params[:category] %></h1>
 
-<div class="container">
-	<% @sneakers.each do |sneaker| %>
-	<div class="container">
-		<h1><%= link_to sneaker.title, sneaker_path(sneaker) %></h1>
-	</div>
-	<% end %>
-	<%= link_to "Add Sneaker", new_sneaker_path %>
-</div>
+<% if @sneakers.count == 0 %>
+  <h3>There are no <%= params[:category] %> shoes. But they will coming soon!</h3>
+<% else %>
+    <div class="container">
+	    <% @sneakers.each do |sneaker| %>
+	    <div class="container">
+		    <h1><%= link_to sneaker.title, sneaker_path(sneaker) %></h1>
+	    </div>
+	    <% end %>
+    </div>
+<% end %>

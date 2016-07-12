@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
 	attr_accessor :remember_token, :activation_token, :reset_token
 	before_save :downcase_email
-
+	before_create :create_activation_digest
+	has_many :sneakers
 	validates :first_name, presence: true, length: { maximum: 25 }
 	validates :last_name, presence:true, length: { maximum: 25 }
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -65,7 +66,7 @@ class User < ActiveRecord::Base
 	  	self.email = email.downcase
 	  end
 
-	  def create_activation_token
+	  def create_activation_digest
 	  	self.activation_token = User.new_token
 	  	self.activation_digest = User.digest(activation_token)
 	  end

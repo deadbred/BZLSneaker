@@ -2,4 +2,10 @@
 
 <h1>Edit Sneaker</h1>
 
-<%= render 'form' %>
+<%= simple_form_for @sneaker, :html => { :multipart => true } do |f| %>
+  <%= f.select :category_id, @categories %>
+  <%= f.input :title, label: "Title" %>
+  <%= f.input :detail %>
+  <%= f.input :price %>
+  <%= f.button :submit %>
+<% end %>
