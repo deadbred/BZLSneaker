@@ -1,0 +1,22 @@
+<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<h3 class="modal-title">Login</h3>
+		</div>
+
+			<div class="modal-body">
+				<%= render 'sessions/loginform' %>
+			</div>
+
+			<div class="modal-footer">
+				<p>New user?
+					<%= link_to  signup_path, remote: true, data: { dismiss: "modal", toggle: "modal", target: "#signup"} do %>
+					<button type="button" class="btn btn-default">Join Now!</button>
+					<% end %>
+				</p>
+			</div>
+	</div>
+</div>

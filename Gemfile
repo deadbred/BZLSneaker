@@ -10,6 +10,12 @@ gem 'sass-rails', '~> 5.0'
 
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
 
+gem 'paperclip', '~> 5.0'
+
+gem 'redis', '~> 3.3', '>= 3.3.1'
+
+gem 'hiredis', '~> 0.6.1'
+
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 
 gem 'uglifier', '>= 1.3.0'

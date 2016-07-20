@@ -4,6 +4,7 @@
 
 <%= simple_form_for @sneaker, :html => { :multipart => true } do |f| %>
   <%= f.select :category_id, @categories %>
+  <%= f.file_field :sneaker_img %>
   <%= f.input :title, label: "Title" %>
   <%= f.input :detail %>
   <%= f.input :price %>

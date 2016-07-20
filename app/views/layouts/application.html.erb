@@ -8,6 +8,8 @@
 </head>
 <body>
 <%= render 'shared/header' %>
+<%= render 'sessions/modal' %>
+<%= render 'users/modal' %>
 <div class="container">
 	<% flash.each do |message_type, message| %>
 	  <div class="alert alert-<%= message_type %>"><%= message %></div>

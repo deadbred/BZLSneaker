@@ -1,12 +1,8 @@
 <nav class="navbar navbar-default">
 	<div class="container">
-		<div class="navbar-header">
-			<%= link_to "BLZSneaker", root_path, class: "navbar-brand" %>
-		</div>
-
 		<ul class="nav navbar-nav">
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded='false'>Brands <span class="caret"></span></a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded='false'><span class="glyphicon glyphicon-list"></span></a>
 				<ul class="dropdown-menu" role='menu'>
 					<% Category.all.each do |category| %>
 					  <li class="<%= 'active' if params[:category] == category.name %>">
@@ -15,16 +11,19 @@
 					<% end %>
 				</ul>
 			</li>
+			<div class="navbar-header">
+			<%= link_to "BLZSneaker", root_path, class: "navbar-brand" %>
+		    </div>
 			<% if logged_in? && current_user.admin? %>
 			  <li><%= link_to "Add sneaker", new_sneaker_path %></li>
 			<% end %>
 		</ul>
 
-		<ul class="nav navbar-nav navbar-right">
+		<ul class="nav navbar-nav navbar-right" id="loginicon">
 			<% if logged_in? %>
 			  <li class="dropdown">
-			  	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-			  		Account<b class="caret"></b>
+			  	<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-remote="true">
+			  		<span class="glyphicon glyphicon-user"></span>
 			  	</a>
 			  	<ul class="dropdown-menu">
 			  		<li><%= link_to "Profile", current_user %></li>
@@ -34,7 +33,10 @@
 			  	</ul>
 			  </li>
 			<% else %>
-			  <li><%= link_to "Log In", login_path %></li>
+			  <li><%= link_to login_path, remote: true, data: { toggle: "modal", target: "#login" } do %>
+			  	    <span class="glyphicon glyphicon-user"></span>
+			  	  <% end %>
+			  </li>
 			<% end %>
 		</ul>
 	</div>

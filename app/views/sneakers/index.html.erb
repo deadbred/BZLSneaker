@@ -3,11 +3,33 @@
 <% if @sneakers.count == 0 %>
   <h3>There are no <%= params[:category] %> shoes. But they will coming soon!</h3>
 <% else %>
+
     <div class="container">
 	    <% @sneakers.each do |sneaker| %>
-	    <div class="container">
-		    <h1><%= link_to sneaker.title, sneaker_path(sneaker) %></h1>
+	    <div class="col-md-4 onesneaker">
+	    	<a href="/sneakers/<%= sneaker.id %>">
+	    		<%= image_tag(sneaker.sneaker_img.url(:sneaker_index), class: "sneaker", 
+	    		                                                       id: sneaker.id) %>
+	    	</a>
+	    	<div class="text-detail">
+	    		<h4 class="hidden-title" id="title<%= sneaker.id %>">
+	    			<%= sneaker.title %>
+	    		</h4><br>
+	    		<h4 class="price" id="price<%= sneaker.id %>">$<%= sneaker.price %></h4>
+	    	</div>
 	    </div>
 	    <% end %>
     </div>
 <% end %>
+
+<script>
+	$('.sneaker').hover(function() {
+		var id = $(this).attr("id");
+		$("#title"+id).show();
+		$("#price" + id).show();
+	}, function() {
+		var id = $(this).attr("id");
+		$("#title" + id).hide();
+		$("#price" + id).hide();
+	})
+</script>

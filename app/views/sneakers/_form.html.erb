@@ -1,5 +1,6 @@
 <%= simple_form_for @sneaker do |f| %>
   <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select a Brand") %>
+  <%= f.file_field :sneaker_img %>
   <%= f.input :title, label: "Title" %>
   <%= f.input :detail %>
   <%= f.input :price %>

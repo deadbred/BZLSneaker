@@ -1,0 +1,6 @@
+<% if flash.empty? %>
+  $('#login').modal('hide').empty();
+  window.location.reload();
+<% else %>
+  $('#login').html('<%= j render("sessions/submodal") %>');
+<% end %>

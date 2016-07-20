@@ -1,10 +1,16 @@
 <% provide(:title, "Sneaker") %>
-<div class="container">
-	<h2><%= @sneaker.title %></h2>
-	<h3>$<%= @sneaker.price %></h3>
-	<h4><%= @sneaker.category.name %></h4>
-	<p><%= @sneaker.detail %></p>
-	<%= link_to "Back", root_path %></br>
+<div class="row">
+	<div class="col-md-6">
+		<%= image_tag @sneaker.sneaker_img.url(:sneaker_show), class: "sneaker-show" %>
+	</div>
+
+	<div class="col-md-6">
+		   <h2><%= @sneaker.title %></h2>
+	       <h3>$<%= @sneaker.price %></h3>
+	       <h4><%= @sneaker.category.name %></h4>
+	       <p><%= @sneaker.detail %></p>
+	</div>
+</div>
 
 	<% if logged_in? %>
 	  <% if @sneaker.user_id == current_user.id %>
@@ -13,4 +19,4 @@
 	                                                  data: { confirm: "Are you sure?" } %>
 	  <% end %>
 	<% end %>
-</div>
+

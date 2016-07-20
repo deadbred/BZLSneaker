@@ -3,6 +3,7 @@ class SneakersController < ApplicationController
 	before_action :find_sneaker, only: [:show, :edit, :update, :destroy]
 
 	def index
+		@user = User.new
 		if params[:category].blank?
 		    @sneakers = Sneaker.all.order("created_at DESC")
 		else
@@ -27,6 +28,7 @@ class SneakersController < ApplicationController
 	end
 
 	def show
+		@user = User.new
 	end
 
 	def edit
@@ -50,7 +52,7 @@ class SneakersController < ApplicationController
 	private
 
 	  def sneaker_params
-	  	params.require(:sneaker).permit(:title, :detail, :price, :category_id)
+	  	params.require(:sneaker).permit(:title, :detail, :price, :category_id, :sneaker_img)
 	  end
 
 	  def find_sneaker

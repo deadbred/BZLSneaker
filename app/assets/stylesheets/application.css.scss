@@ -17,16 +17,24 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@mixin background-tile {
+ 	box-sizing: border-box;
+ 	background-color: #fff;
+ 	border-radius: 5px;
+ 	box-shadow: 3px 3px 5px 6px #ccc;
+ 	padding: 1.5em 1.25em;
+ }
 /* global */
 
 body {
 	font-family: 'Lora',serif;
+	color: #ababab;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	text-align: center;
 	font-family: 'Ubuntu', sans-serif;
  	font-weight: 300;
+ 	text-align: center;
 }
 
 /* Navbar */
@@ -40,15 +48,42 @@ h1, h2, h3, h4, h5, h6 {
 	padding-top: 5px;
 
 	.navbar-header {
-
+		margin-left: 10px;
 		.navbar-brand {
 			color: #ababab;
+			font-size: 1.5em;
 			letter-spacing: 2px;
 		}
 	}
+
+	.navbar-nav > li > a {
+ 		color: #ababab;
+ 		&:hover {
+ 			color: darken(#D7DBDD, 5%);
+ 			transition: 0.5s;
+ 		}
+ 	}
+
+ 	.dropdown-menu > li > a:hover {
+ 		background-color: darken(#D7DBDD, 5%);
+ 		color: #fff;
+ 	}
 }
 
+.dropdown-menu > .active > a {
+ 	background-color: #D7DBDD;
+ 	color: #fff;
+ }
 
+ .glyphicon {
+ 	font-size: 1.5em;
+ }
+
+/* Button */
+
+
+
+/* user show */
 
 aside {
 	section.user_info {
@@ -89,8 +124,8 @@ input {
 	height: auto !important;
 }
 
-#btn {
-	color: Black;
+.btn {
+	color: #ababab;
 }
 
 #error_explanation {
@@ -103,6 +138,9 @@ input {
 
 .filed_with_errors {
 	@extend .has-error;
+	 .form-control {
+    color: $state-danger-text;
+  }
 }
 
 .checkbox {
@@ -117,5 +155,42 @@ input {
 #session_remember_me {
 	width: auto;
 	margin-left: 0;
+}
+
+/* Sneaker index */
+.current-category {
+	margin-bottom: 40px;
+}
+
+.onesneaker {
+	position:relative;
+	padding-bottom: 60px;
+	text-align: center;
+
+	.sneaker {
+		margin-bottom: 20px;
+	}
+
+	.hidden-title {
+		color: #ababab;
+ 		display: none;
+ 		position: absolute;
+ 		margin-left: auto;
+ 		margin-right: auto;
+ 		left: 0;
+ 		right: 0;
+	}
+
+	.price {
+		color: #ababab;
+ 		display: none;
+ 		position: absolute;
+ 		margin-left: auto;
+ 		margin-right: auto;
+ 		left: 0;
+ 		right: 0;
+	}
+}
+.sneaker-show {
 }
 

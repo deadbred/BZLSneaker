@@ -1,0 +1,6 @@
+<% if @user.errors.any? %>
+  $('#signup').html('<%= j render("users/submodal") %>');
+<% else %>
+  $('#signup').modal('hide').empty();
+  window.location.reload();
+<% end %>
